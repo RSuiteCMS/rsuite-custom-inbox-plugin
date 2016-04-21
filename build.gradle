@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+apply from: 'http://ivy.reallysi.com/ivy-repo/rsuite-std-plugin-tasks.gradle'
+apply from: 'http://ivy.reallysi.com/ivy-repo/repositories-std-include.gradle'
+
+group = "rsi"
+project.buildDir = 'target'
+
+dependencies {
+	compile ('rsi:rsuite-api:4.1.14') {
+		transitive = false
+	}
+}
+
+jar () {
+	baseName='rsuite-custom-inbox-plugin'
+}

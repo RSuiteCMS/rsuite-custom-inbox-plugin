@@ -1,0 +1,19 @@
+<rsuite-plugin id="@pluginId@" version="@pluginVersion@ at @timeStamp@">
+
+	<extensionProvider id="rsuite.WebService">
+		<staticWebService path="/WebContent" root="/@pluginId@" />
+	</extensionProvider>
+
+	<extensionProvider id="rsuite.UI">
+		<scriptInclude src="/@pluginId@/config.js" />
+	</extensionProvider>
+
+	<extensionProvider id="rsuite.ContextMenu">
+
+	</extensionProvider>
+
+	<extensionProvider id="rsuite.Workflow">
+
+	</extensionProvider>
+
+</rsuite-plugin>
