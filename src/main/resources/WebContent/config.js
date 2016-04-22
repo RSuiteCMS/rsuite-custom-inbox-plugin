@@ -57,15 +57,14 @@
 	//  [inbox controller scheduler] -> request for inbox data made (manager)
 	//  [inbox controller scheduler] -> inbox model recieved; manager model created and populated.
 	if (!RSuite.view.Inbox.prototype.realRefresh) {
+		var refresh = RSuite.view.Inbox.prototype.refresh;
 		RSuite.view.Inbox.reopen({
 			realRefresh: function () {
 				if (!this.isDestroying && !this.isDestroyed) {
-					supes.apply(this, args);
+					refresh.apply(this);
 				}
 			},
 			refresh: function () {
-				var supes = this._super,
-					args = [].slice.call(arguments);
 				Ember.run.schedule('timers', this, 'realRefresh');
 			}
 		});
