@@ -57,7 +57,7 @@
 	//  [inbox controller scheduler] -> request for inbox data made (manager)
 	//  [inbox controller scheduler] -> inbox model recieved; manager model created and populated.
 	if (!RSuite.view.Inbox.prototype.realRefresh) {
-		var refresh = RSuite.view.Inbox.prototype.refresh;
+		var refresh = RSuite.view.Inbox.proto().refresh;
 		RSuite.view.Inbox.reopen({
 			realRefresh: function () {
 				if (!this.isDestroying && !this.isDestroyed) {
