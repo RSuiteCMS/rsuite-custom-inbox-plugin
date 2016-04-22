@@ -10,7 +10,7 @@
 	//	not the real superclass.
 	var superProto = RSuite.view.Activity.Tasks.superclass.proto();
 
-	if (!RSuite.view.Activity.Tasks.prototype.clearControlledInboxes) {
+	if (!RSuite.view.Activity.Tasks.proto().clearControlledInboxes) {
 		RSuite.view.Activity.Tasks.reopen({
 			clearControlledInboxes: function () {
 				Object.keys(this.get('controller')).forEach(function (name) {
@@ -56,7 +56,7 @@
 	//  [activity view insert] -> inbox model requested from controller (manager)
 	//  [inbox controller scheduler] -> request for inbox data made (manager)
 	//  [inbox controller scheduler] -> inbox model recieved; manager model created and populated.
-	if (!RSuite.view.Inbox.prototype.realRefresh) {
+	if (!RSuite.view.Inbox.proto().realRefresh) {
 		var refresh = RSuite.view.Inbox.proto().refresh;
 		RSuite.view.Inbox.reopen({
 			realRefresh: function () {
