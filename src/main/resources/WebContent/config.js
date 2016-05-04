@@ -15,8 +15,8 @@
 			clearControlledInboxes: function () {
 				Object.keys(this.get('controller')).forEach(function (name) {
 					var cachedInbox = RSuite.model.Inbox.cache[name];
-					delete RSuite.model.Inbox.cache[name];
-					Ember.run.schedule('destroy', this, function () {
+					//delete RSuite.model.Inbox.cache[name];
+					Ember.run.schedule('timers', this, function () {
 						cachedInbox.destroy();
 						//Make sure it stays gone.
 						delete RSuite.model.Inbox.cache[name];
@@ -69,6 +69,12 @@
 			}
 		});
 	}
+	RSuite.view.Inbox.reopen({
+		updateInbox: Ember.observeOnce(function () {
+			// Defer briefly so that state has a chance to change before refresh is requested.
+			Ember.run.later(this, 'refresh', 125);
+		}, 'RSuite.windowFocus')
+	});
 }());
 
 // Creates the controller for the `Manage` tab, containing the `Manage tasks`
