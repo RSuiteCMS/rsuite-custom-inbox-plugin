@@ -15,7 +15,7 @@
 			clearControlledInboxes: function () {
 				Object.keys(this.get('controller')).forEach(function (name) {
 					var cachedInbox = RSuite.model.Inbox.cache[name];
-					//delete RSuite.model.Inbox.cache[name];
+					delete RSuite.model.Inbox.cache[name];
 					Ember.run.schedule('timers', this, function () {
 						cachedInbox.destroy();
 						//Make sure it stays gone.
