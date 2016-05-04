@@ -1,4 +1,4 @@
-// Inbox reloading patch for 4.1.15 - Fixes problems with cache persistence and multi-tapping
+// Inbox reloading patch for 4.0.0 to 4.1.14 - Fixes problems with cache persistence and multi-tapping
 //	of inbox service on document focus click away from tasks activity.
 (function () {
 	// RSuite.view.Activity clears out the Tasks cache on destroy.  This is
