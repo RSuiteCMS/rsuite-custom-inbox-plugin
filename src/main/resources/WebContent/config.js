@@ -60,7 +60,7 @@
 		var refresh = RSuite.view.Inbox.proto().refresh;
 		RSuite.view.Inbox.reopen({
 			realRefresh: function () {
-				if (!this.isDestroying && !this.isDestroyed) {
+				if (this.state === 'inDOM' && !this.isDestroying && !this.isDestroyed) {
 					refresh.apply(this);
 				}
 			},
